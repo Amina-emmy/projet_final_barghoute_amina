@@ -64,7 +64,7 @@
                             <a href="#"><i class="ti-heart"></i></a>
                             {{-- <a href="#"><i class="fas fa-cart-plus"></i></a> --}}
                             <a href="#"><i class="ti-shopping-cart"></i></a>
-                            <!-- icon login vers page login -->
+                            <a href={{route("loginRegister.index")}}><i class="ti-user"></i></a>
                         </div>
                 </div>
                 </nav>
