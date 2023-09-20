@@ -1,15 +1,20 @@
 @extends('layouts.page_structure.indexFront')
 @section('content')
-        <!--================Home Banner Area =================-->
+    <!--================Home Banner Area =================-->
     <!-- breadcrumb start-->
+    <style>
+        .breadcrumb_bg {
+            background: url({{asset('storage/img/breadcrumb.png')}}) center;
+        }
+    </style>
     <section class="breadcrumb breadcrumb_bg">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Shop Category</h2>
-                            <p>Home <span>-</span> Shop Category</p>
+                            <h2>All Products</h2>
+                            <p>Home <span>-</span> Products</p>
                         </div>
                     </div>
                 </div>
