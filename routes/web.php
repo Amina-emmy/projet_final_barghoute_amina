@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -17,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 //* VIEWS
 Route::get('/',[HomeController::class,"index"])->name("home.index");
-Route::get('/home/products',[ProductController::class,"index"])->name("products.index");
+Route::get('/products',[ProductController::class,"index"])->name("products.index");
+Route::get('/contact',[ContactController::class,"index"])->name("contact.index");
 
 
 

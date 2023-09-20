@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
     <!-- style CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 
 <body>
@@ -53,7 +56,7 @@
                                     <a class="nav-link" href={{ route('products.index') }}>Products</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href={{ route('contact.index') }}>Contact</a>
                                 </li>
                             </ul>
                         </div>
