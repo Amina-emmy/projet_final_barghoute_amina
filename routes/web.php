@@ -22,9 +22,12 @@ Route::get('/',[HomeController::class,"index"])->name("home.index");
 Route::get('/products',[ProductController::class,"index"])->name("products.index");
 Route::get('/contact',[ContactController::class,"index"])->name("contact.index");
 Route::get('/loginRegister',[LoginRegisterController::class,"index"])->name("loginRegister.index");
-
 //view show product
 
+//^ ADMIN ONLY
+Route::get('/backoffice', function () {
+    return view('backend.pages.backoffice');
+})->middleware(['auth', 'verified','role:admin'])->name('backoffice');
 
 //& AUTH Routes
 Route::get('/dashboard', function () {

@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
 
 </head>
 
@@ -60,11 +61,33 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="hearer_icon d-flex">
+                        <div class="hearer_icon d-flex align-items-center">
                             <a href="#"><i class="ti-heart"></i></a>
-                            {{-- <a href="#"><i class="fas fa-cart-plus"></i></a> --}}
-                            <a href="#"><i class="ti-shopping-cart"></i></a>
-                            <a href={{route("loginRegister.index")}}><i class="ti-user"></i></a>
+                            <a href="#"><i class="fas fa-cart-plus"></i></a>
+                            {{-- <a href="#"><i class="ti-shopping-cart"></i></a> --}}
+                        </div>
+                        <div>
+                            @if (!auth()->user())
+                                <a href={{ route('loginRegister.index') }}><i class="ti-user"></i></a>
+                            @else
+                                <div class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="{{route("backoffice")}}" id="navbarDropdown_2"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                                        <a class="dropdown-item" href="{{route("profile.edit")}}"> Profile</a>
+                                        <form action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <a class="dropdown-item" href="{{route("logout")}}"
+                                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                                Log out</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            @endif
+                            
                         </div>
                 </div>
                 </nav>
@@ -181,35 +204,37 @@
         </div>
     </footer>
     <!--::footer_part end::-->
-
+    {{-- bootstrap so the modal works --}}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <!-- jquery plugins here-->
-    <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>
+    <script src="{{ asset('js/jquery-1.12.1.min.js') }}"></script>
     <!-- popper js -->
-    <script src="{{asset('js/popper.min.js')}}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
     <!-- bootstrap js -->
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!-- easing js -->
-    <script src="{{asset('js/jquery.magnific-popup.js')}}"></script>
+    <script src="{{ asset('js/jquery.magnific-popup.js') }}"></script>
     <!-- swiper js -->
-    <script src="{{asset('js/swiper.min.js')}}"></script>
+    <script src="{{ asset('js/swiper.min.js') }}"></script>
     <!-- swiper js -->
-    <script src="{{asset('js/masonry.pkgd.js')}}"></script>
+    <script src="{{ asset('js/masonry.pkgd.js') }}"></script>
     <!-- particles js -->
-    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('js/jquery.nice-select.min.js')}}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
     <!-- slick js -->
-    <script src="{{asset('js/slick.min.js')}}"></script>
-    <script src="{{asset('js/jquery.counterup.min.js')}}"></script>
-    <script src="{{asset('js/waypoints.min.js')}}"></script>
-    <script src="{{asset('js/contact.js')}}"></script>
-    <script src="{{asset('js/jquery.ajaxchimp.min.js')}}"></script>
-    <script src="{{asset('js/jquery.form.js')}}"></script>
-    <script src="{{asset('js/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('js/mail-script.js')}}"></script>
-    <script src="{{asset('js/stellar.js')}}"></script>
-    <script src="{{asset('js/price_rangs.js')}}"></script>
+    <script src="{{ asset('js/slick.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('js/contact.js') }}"></script>
+    <script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.form.js') }}"></script>
+    <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('js/mail-script.js') }}"></script>
+    <script src="{{ asset('js/stellar.js') }}"></script>
+    <script src="{{ asset('js/price_rangs.js') }}"></script>
     <!-- custom js -->
-    <script src="{{asset('js/custom.js')}}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 
 
 </body>

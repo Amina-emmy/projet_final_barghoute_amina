@@ -116,7 +116,7 @@
 	font-size: 15px;
 	font-weight: 500;
 	padding: 12px 54px;
-	border-radius: 4px;
+	border-radius: 3px;
 	color: $white_color;
 	border: 1px solid $border_color;
 	text-transform: uppercase;
@@ -162,9 +162,9 @@
 		padding: 12px 25px;
 
 		&:hover{
-			// border-color: $title-color;
-			// background: $title-color;
-			// color: $white_color;
+			border-color: $title-color;
+			background: $title-color;
+			color: $white_color;
 		}
 	}
 }
