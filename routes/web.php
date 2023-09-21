@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginRegisterController;
+use App\Http\Controllers\PanierController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,7 @@ Route::get('/products',[ProductController::class,"index"])->name("products.index
 Route::get('/contact',[ContactController::class,"index"])->name("contact.index");
 Route::get('/loginRegister',[LoginRegisterController::class,"index"])->name("loginRegister.index");
 Route::get('/showSingleProduct/{product}',[ProductController::class,"showProduct"])->name("products.showProduct");
+Route::get('/panier',[PanierController::class,"index"])->name("panier.index");
 
 //^ ADMIN ONLY
 Route::get('/backoffice', function () {
