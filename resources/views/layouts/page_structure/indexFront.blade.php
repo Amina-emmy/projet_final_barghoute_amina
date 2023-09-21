@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <!-- owl carousel CSS -->
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/lightslider.min.css') }}">
+
     <!-- nice select CSS -->
     <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
     <!-- font awesome CSS -->
@@ -27,9 +29,9 @@
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
     <!-- style CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
+    {{-- fontawesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
+
 
 </head>
 
@@ -71,23 +73,23 @@
                                 <a href={{ route('loginRegister.index') }}><i class="ti-user"></i></a>
                             @else
                                 <div class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="{{route("backoffice")}}" id="navbarDropdown_2"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true"
+                                    <a class="nav-link dropdown-toggle" href="{{ route('backoffice') }}"
+                                        id="navbarDropdown_2" role="button" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
                                         {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="{{route("profile.edit")}}"> Profile</a>
+                                        <a class="dropdown-item" href="{{ route('profile.edit') }}"> Profile</a>
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
-                                            <a class="dropdown-item" href="{{route("logout")}}"
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault(); this.closest('form').submit();">
                                                 Log out</a>
                                         </form>
                                     </div>
                                 </div>
                             @endif
-                            
+
                         </div>
                 </div>
                 </nav>
@@ -204,10 +206,17 @@
         </div>
     </footer>
     <!--::footer_part end::-->
+
     {{-- bootstrap so the modal works --}}
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
+    </script>
+
     <!-- jquery plugins here-->
+    <!-- jquery -->
     <script src="{{ asset('js/jquery-1.12.1.min.js') }}"></script>
     <!-- popper js -->
     <script src="{{ asset('js/popper.min.js') }}"></script>
