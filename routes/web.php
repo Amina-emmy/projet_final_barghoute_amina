@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BackofficeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginRegisterController;
@@ -25,15 +26,17 @@ Route::get('/contact',[ContactController::class,"index"])->name("contact.index")
 Route::get('/loginRegister',[LoginRegisterController::class,"index"])->name("loginRegister.index");
 Route::get('/showSingleProduct/{product}',[ProductController::class,"showProduct"])->name("products.showProduct");
 Route::get('/panier',[PanierController::class,"index"])->name("panier.index");
-
-//^ ADMIN ONLY
-Route::get('/backoffice', function () {
-    return view('backend.pages.backoffice');
-})->middleware(['auth', 'verified','role:admin'])->name('backoffice');
+// Route::get('/products/category/{categoryClicked}',[ProductController::class,"categoryClicked"])->name("products.categoryClicked");
 
 //* FUNCTIONS
 //? mailNewsLetter
 Route::post('/home/mailNewsLetter',[HomeController::class,"mailNewsLetter"])->name('home.mailNewsLetter');
+
+//^ ADMIN ONLY
+Route::get('/backoffice',[BackofficeController::class,'index'])->middleware(['auth', 'verified','role:admin'])->name('backoffice');
+Route::put('/backoffice/changeRole/{user}',[BackofficeController::class,'changeRole'])->name('backoffice.changeRole');
+Route::delete('/backoffice/destroyUser/{user}',[BackofficeController::class,'destroyUser'])->name('backoffice.destroyUser');
+
 
 
 

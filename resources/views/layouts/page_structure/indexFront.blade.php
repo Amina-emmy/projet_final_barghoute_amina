@@ -36,6 +36,8 @@
 </head>
 
 <body>
+    @include('layouts.flash.flash')
+
     <!-- //* header part start ------------------------------------------------------->
     <header class="main_menu home_menu">
         <div class="container">
@@ -65,7 +67,7 @@
                         </div>
                         <div class="hearer_icon d-flex align-items-center">
                             <a href="#"><i class="ti-heart"></i></a>
-                            <a href="{{route("panier.index")}}"><i class="fas fa-cart-plus"></i></a>
+                            <a href="{{ route('panier.index') }}"><i class="fas fa-cart-plus"></i></a>
                             {{-- <a href="#"><i class="ti-shopping-cart"></i></a> --}}
                         </div>
                         <div>
@@ -98,7 +100,6 @@
         </div>
     </header>
     <!-- Header part end ---------------------------------------------------->
-
     @yield('content')
 
     <!--::footer_part start::-->
@@ -155,7 +156,8 @@
                         <p>Heaven fruitful doesn't over lesser in days. Appear creeping
                         </p>
                         <div>
-                            <form action={{route("home.mailNewsLetter")}} method="POST" class="subscribe_form relative mail_part">
+                            <form action={{ route('home.mailNewsLetter') }} method="POST"
+                                class="subscribe_form relative mail_part">
                                 @csrf
                                 <input type="email" name="emailuser" id="newsletter-form-email"
                                     placeholder="Email Address" class="placeholder hide-on-focus"
@@ -164,6 +166,7 @@
                                     class="email_icon newsletter-submit button-contactForm">subscribe</button>
                                 <div class="mt-10 info"></div>
                             </form>
+
                         </div>
                     </div>
                 </div>

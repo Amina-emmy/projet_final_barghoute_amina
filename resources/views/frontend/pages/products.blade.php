@@ -35,18 +35,12 @@
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
-                                    <li>
-                                        <a href="#">Frozen Fish</a>
-                                        <span>(250)</span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dried Fish</a>
-                                        <span>(250)</span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Fresh Fish</a>
-                                        <span>(250)</span>
-                                    </li>
+                                    @foreach ($categories as $category)
+                                        <li>
+                                            <a href="#">{{$category->category}}</a>
+                                            <span>({{$category->products->count()}})</span>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </aside>
@@ -145,7 +139,7 @@
                             @if ($product->stock <= 5)
                                 <div class="single_product_item">
                                     <a href="{{ route('products.showProduct', $product->id) }}">
-                                    <img src={{ asset('storage/img/product/' . $product->image) }} alt="">
+                                        <img src={{ asset('storage/img/product/' . $product->image) }} alt="">
                                     </a>
                                     <div class="single_product_text">
                                         <h4>{{ $product->name }}</h4>
