@@ -90,7 +90,7 @@
                             </div>
                         </div>
                     </div>
-
+                    {{-- PRODUCTS --}}
                     <div class="row align-items-center latest_product_inner">
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">

@@ -11,7 +11,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -24,6 +24,18 @@ class User extends Authenticatable
         'password',
     ];
 
+    //^ Products & Users => One to Many (with the user who created the product)
+    public function productsCreated()
+    {
+        return $this->hasMany(Product::class);
+    }
+    
+    //* Products & Users => Many to Many (with the users who Buy the products)
+    //? PIVOT => Paniers
+    public function productUsers()
+    {
+        return $this->belongsToMany(Product::class, "paniers");
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
