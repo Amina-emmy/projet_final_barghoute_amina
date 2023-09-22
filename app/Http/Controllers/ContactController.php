@@ -15,7 +15,8 @@ class ContactController extends Controller
         $contactInfos=ContactInfo::all();
         return view("frontend.pages.contact",compact("contactInfos"));
     }
-    //* send an Email to BackOffice (mail)
+    
+    //* send an Email to BackOffice & in MailTrap (mail)
     public function MailContact(Request $request)
     {
         //? send mail
@@ -37,5 +38,26 @@ class ContactController extends Controller
         ContactMail::create($data);
         
         return back()->with("success", "Email sent successfully ");
+    }
+
+    //^ edit Contact Infos
+    public function updateContactInfos(Request $request,ContactInfo $info){
+        request()->validate([
+            "city"=>"required",
+            "adress"=>"required",
+            "phone"=>"required",
+            "open_closeTime"=>"required",
+            "email"=>"required|email"
+        ]);
+        $data=[
+            "city"=>$request->city,
+            "adress"=>$request->adress,
+            "phone"=>$request->phone,
+            "open_closeTime"=>$request->open_closeTime,
+            "email"=>$request->email
+        ];
+        $info->update($data);
+
+        return back()->with('success','Contact Infos has been Edited Successfully');
     }
 }

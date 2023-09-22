@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\ContactInfo;
 use App\Models\ContactMail;
 use App\Models\Product;
 use App\Models\User;
@@ -17,8 +18,9 @@ class BackofficeController extends Controller
         $users=User::where("name",'!=','admin')->get();
         $roles=Role::where("name",'!=','admin')->get();
         $mailBox=ContactMail::all();
+        $contactInfos=ContactInfo::all();
 
-        return view('backend.pages.backoffice',compact("users","products","roles","categories","mailBox"));
+        return view('backend.pages.backoffice',compact("users","products","roles","categories","mailBox","contactInfos"));
     }
     //* Change user Role
     public function changeRole(Request $request, User $user){

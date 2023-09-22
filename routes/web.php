@@ -42,6 +42,8 @@ Route::delete('/backoffice/destroyUser/{user}',[BackofficeController::class,'des
 Route::post('/backoffice/addProduct',[ProductController::class,'addProduct'])->name('backoffice.addProduct');
 Route::put('/backoffice/updateProduct/{product}',[ProductController::class,'updateProduct'])->name('backoffice.updateProduct');
 Route::delete('/backoffice/destroyProduct/{product}',[ProductController::class,'destroyProduct'])->name('backoffice.destroyProduct');
+//? Contact infos
+Route::put('/backoffice/updateContactInfos/{info}',[ContactController::class,'updateContactInfos'])->name('backoffice.updateContactInfos');
 
 
 
