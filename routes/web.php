@@ -31,6 +31,7 @@ Route::get('/panier',[PanierController::class,"index"])->name("panier.index");
 //* FUNCTIONS
 //? mailNewsLetter
 Route::post('/home/mailNewsLetter',[HomeController::class,"mailNewsLetter"])->name('home.mailNewsLetter');
+Route::post('/home/mailContact',[ContactController::class,"MailContact"])->name('contact.MailContact');
 
 //^ ADMIN ONLY
 Route::get('/backoffice',[BackofficeController::class,'index'])->middleware(['auth', 'verified','role:admin'])->name('backoffice');
