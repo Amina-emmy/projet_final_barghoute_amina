@@ -34,8 +34,13 @@ Route::post('/home/mailNewsLetter',[HomeController::class,"mailNewsLetter"])->na
 
 //^ ADMIN ONLY
 Route::get('/backoffice',[BackofficeController::class,'index'])->middleware(['auth', 'verified','role:admin'])->name('backoffice');
+//? USERS
 Route::put('/backoffice/changeRole/{user}',[BackofficeController::class,'changeRole'])->name('backoffice.changeRole');
 Route::delete('/backoffice/destroyUser/{user}',[BackofficeController::class,'destroyUser'])->name('backoffice.destroyUser');
+//? Products
+Route::post('/backoffice/addProduct',[ProductController::class,'addProduct'])->name('backoffice.addProduct');
+Route::put('/backoffice/updateProduct/{product}',[ProductController::class,'updateProduct'])->name('backoffice.updateProduct');
+Route::delete('/backoffice/destroyProduct/{product}',[ProductController::class,'destroyProduct'])->name('backoffice.destroyProduct');
 
 
 
