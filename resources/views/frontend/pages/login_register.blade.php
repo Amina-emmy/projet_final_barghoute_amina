@@ -1,11 +1,11 @@
 @extends('layouts.page_structure.indexFront')
 @section('content')
     <!-- breadcrumb start-->
-    {{-- <style>
+    <style>
         .breadcrumb_bg {
             background: url({{ asset('storage/img/breadcrumb.png') }}) center;
         }
-    </style> --}}
+    </style>
     <section class="breadcrumb breadcrumb_bg">
         <div class="container">
             <div class="row justify-content-center">

@@ -2,11 +2,11 @@
 @section('content')
     <!--================Home Banner Area =================-->
     <!-- breadcrumb start-->
-    {{-- <style>
+    <style>
         .breadcrumb_bg {
             background: url({{asset('storage/img/breadcrumb.png')}}) center;
         }
-    </style> --}}
+    </style>
     <section class="breadcrumb breadcrumb_bg">
         <div class="container">
             <div class="row justify-content-center">
@@ -76,7 +76,7 @@
                     </div>
                     {{-- PRODUCTS --}}
                     <div class="row align-items-center latest_product_inner">
-                        @foreach ($products as $product)
+                        @foreach ($productsParPage as $product)
                             <div class="col-lg-4 col-sm-6">
                                 <div class="single_product_item">
                                     <a href="{{ route('products.showProduct', $product->id) }}">
@@ -90,8 +90,10 @@
                                 </div>
                             </div>
                         @endforeach
-
-                        <div class="col-lg-12">
+                        <div>
+                            {{$productsParPage->links()}}
+                        </div>
+                        {{-- <div class="col-lg-12">
                             <div class="pageination">
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination justify-content-center">
@@ -114,7 +116,7 @@
                                     </ul>
                                 </nav>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

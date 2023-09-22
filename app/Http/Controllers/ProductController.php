@@ -16,7 +16,9 @@ class ProductController extends Controller
         $totalproducts = Product::count();
         $products = Product::all();
         $categories = Category::all();
-        return view("frontend.pages.products", compact("products", "totalproducts", "categories"));
+        $productsParPage=Product::paginate(6);
+
+        return view("frontend.pages.products", compact("products", "totalproducts", "categories","productsParPage"));
     }
     public function showProduct(Product $product)
     {
